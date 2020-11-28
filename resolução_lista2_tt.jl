@@ -71,6 +71,7 @@ end
       #a = round.(z[:].*100, digits = 2)
       return z # retorna a % de Pessoas com Ensino Superior nos estados
 end =#
+
 # Para calcular o PIB per capita:
 #= Pibrs = [ 8477
           24575
@@ -125,37 +126,8 @@ end =#
       2068017
       1383445 ] # Vetor que contém a população dos estados na ordem da tabela =#
 
-      #PC = (Pibrs[:]./P[:])
-      #return PC #retorna o PIB per capita em R$ (não em mil R$ como no site que foi retirado o vetor Pibrs)
-      #= PC arredondado:  
-       PC= [0.012
-            0.008
-            0.012
-            0.017
-            0.011
-            0.009
-            0.023
-            0.016
-            0.007
-            0.02
-            0.018
-            0.018
-            0.01
-            0.008
-            0.021
-            0.011
-            0.007
-            0.025
-            0.01
-            0.024
-            0.015
-            0.014
-            0.024
-            0.03
-            0.012
-            0.012]=#
-      #Observação: para o calculo do modelo foi utilizado os valores não arredondados de PC 
-
+      #PC = (100*Pibrs[:]./P[:])
+      #return PC #retorna o PIB per capita do estado i em R$ 
 
 #===   Letra b)  ===#
 #=scatter((z[:],PC[:]), label="Dados", c=:skyblue, xlims=(4,16), ylims=(500,3200), xlabel ="% de Pessoas com ensino superior no estado i", ylabel = "PIB per capita do Estado i", legend=:topleft)=#
@@ -267,7 +239,7 @@ e o modelo de regressão linear mθ(x) = θ₀ + θ₁*x é dado por (θ₀, θ�
 # mθ(2090) - 13,72 = 2,206, que é superior a meta estabelecida no  Acordo de Paris.
 
 #===   Letra c)  ===#
-# A projeção feita no item b sugere que a temperatura média global é crescente (de acordo com a projeção com base em dados anteriores).
+# A projeção feita no item b sugere que a temperatura média global é crescente (de acordo com a projeção feita sobre dados de anos anteriores).
 # Veja que, de 2011 a 2090 podemos calcular a projeção de acordo com o modelo feito e verificar em qual ano o Acordo de Paris não se cumpre e que a temperatura média global é de fato crescente.
 # Passo 1:  i = 2011, ..., 2090
 # Passo 2:  Calcule mθ(i)
